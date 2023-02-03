@@ -12,6 +12,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+/* //card */
+@media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +37,171 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.home{
+  min-width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  z-index: 1;
+}
+.medican{
+  font-size: 5rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  text-shadow: #282c34;box-shadow: 7px;
+  min-width: 95vw;
+  animation: medican-title 2s linear;
+}
+@keyframes medican-title{
+  0%{
+    opacity: 0;
+    transform: translateY(+100px);
+  }
+  50%{
+    opacity: 0.5;
+    transform: translateY(0px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.desc{
+  font-size: 3rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-width: 95vw;
+  /* animation: medican-desc 4s linear; */
+  animation: medican-desc 2s linear;
+  /* animation-delay: 2s; */
+  opacity: 1;
+
+}
+@keyframes medican-desc{
+  0%{
+    opacity: 0;    
+    transform: translateY(+50px);
+
+  }
+  50%{
+    opacity: 0;
+    transform: translateY(+50px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.search-bar{
+  margin-top: 5vh;
+  min-width: 70vw;
+  min-height: 7vh;
+  animation: serach-bar-anim 4s linear;
+  /* animation-delay: 2s; */
+  opacity: 1;
+}
+@keyframes serach-bar-anim{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.do{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.to{
+  color: white;
+  height: 7vh;
+}
+.to:hover{
+  color: black;
+  background-color: white;
+}
+input::placeholder{
+font-family: 'Open Sans', sans-serif;
+}
+.font{
+  font-family: 'Aboreto', cursive;
+}
+/* .transColor{
+  min-width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+} */
+.overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  min-width: 100vw;
+}
+
+.navbar{
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+  min-width: 98.2vw;
+  min-height: 10vh;
+  max-height: 13vh;
+  background-color: #282c34;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+.medican-w{
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-shadow: #282c34;box-shadow: 7px;
+  min-width: 10vw;
+}
+.search-bar-w{
+  width: 60vw;
+  height: 6vh;
+  opacity: 1;
+}
+.space{
+  min-width: 5vw;
+  min-height: 7vh;
 }
