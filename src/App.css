@@ -205,3 +205,26 @@ font-family: 'Open Sans', sans-serif;
   min-width: 5vw;
   min-height: 7vh;
 }
+.buynow{
+  margin-top: 2px;
+  background-color: #282c34;
+  color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  min-width: 5vw;
+  
+  min-height: 5vh;
+}
+.comInfo{
+  margin-top: 2px;
+  min-width: 7vw;
+  height: 5vh;
+}
+@media only screen and (max-width: 992px) {
+  .imageLink{
+    height: 35vh;
+  }
+}
