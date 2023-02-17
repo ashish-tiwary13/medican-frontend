@@ -21,7 +21,7 @@ const Cards = (props) => {
                           className="w-100 imageLink" />
                         <a href="#!">
                           <div className="hover-overlay">
-                            <div className="mask" style={{backgroundColor: "rgba(253, 253, 253, 0.15)"}}></div>
+                            <div className="mask" ></div>
                           </div>
                         </a>
                       </div>
@@ -63,19 +63,19 @@ const Cards = (props) => {
                       <h6 className="text-success fs-4 d-flex my-3 justify-content-center">Discounted Price</h6>
                       <div className="d-flex flex-row justify-content-center">
                         <div className="d-flex flex-column justify-content-center">
-                          <h5 className="mx-3 onemgTitle comInfo">1Mg</h5>
+                          <h5 className="mx-3 truemedsTitle comInfo">Truemeds</h5>
                           <h5 className="mx-3 apolloTitle comInfo">Apollo</h5>
                           <h5 className="mx-3 pharmeasyTitle comInfo" style={{display: `${data.pharmeasyPrice==0?"none":"block"}`}} >Pharmeasy</h5>
                           <h5 className="mx-3 netmedsTitle comInfo" style={{display: `${data.netmedsPrice==0?"none":"block"}`}} >Netmeds</h5>
                         </div>
                         <div className="d-flex flex-column justify-content-center">
-                          <h5 className="mx-2 onemgPrice comInfo">₹{data.oneMgPrice}</h5>
+                          <h5 className="mx-2 truemedsPrice comInfo">₹{data.truemedsPrice}</h5>
                           <h5 className="mx-2 apolloPrice comInfo">₹{data.apolloPrice}</h5>
                           <h5 className="mx-2 pharmeasyPrice comInfo" style={{display: `${data.pharmeasyPrice==0?"none":"block"}`}} >₹{data.pharmeasyPrice}</h5>
                           <h5 className="mx-2 netmedsPrice comInfo" style={{display: `${data.netmedsPrice==0?"none":"block"}`}} >₹{data.netmedsPrice}</h5>
                         </div>
                         <div className="d-flex flex-column justify-content-center">
-                          <button className="btn btn-success btn-sm mx-3 my-1 buynow onemgLink" type="button" onClick={()=>redirectForLink(data.oneMgLink)}>Buy Now</button>
+                          <button className="btn btn-success btn-sm mx-3 my-1 buynow truemedsLink" type="button" onClick={()=>redirectForLink(data.truemedsLink)}>Buy Now</button>
                           <button className="btn btn-success btn-sm mx-3 my-1 buynow aplloLink" type="button" onClick={()=>redirectForLink(data.apolloLink)}>Buy Now</button>
                           <button className="btn btn-success btn-sm mx-3 my-1 buynow pharmeasyLink" style={{display: `${data.pharmeasyPrice==0?"none":"block"}`}} type="button" onClick={()=>redirectForLink(data.pharmeasyLink)}>Buy Now</button>
                           <button className="btn btn-success btn-sm mx-3 my-1 buynow netmedsLink" style={{display: `${data.netmedsPrice===0?"none":"block"}`}} type="button" onClick={()=>redirectForLink(data.netmedsLink)}>Buy Now</button>

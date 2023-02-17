@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* font-family: 'Aboreto', cursive; */
   font-family: 'Open Sans', sans-serif;
+  background-color: rgb(117, 116, 116);
 }
 
 code {
