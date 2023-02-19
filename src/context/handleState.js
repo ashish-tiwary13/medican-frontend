@@ -12,6 +12,7 @@ const fuzz= require('fuzzball');
 
 const HandleState = (props) => {
     const [data, setData] = useState('');
+    const [searched, setSearched] = useState('');
 
     const apollo = async (search) => {
       const response = await fetch("https://medican-backend-apollo.vercel.app/api",{
@@ -171,6 +172,9 @@ const HandleState = (props) => {
         }
         const filterData = medicanApi3.filter((item) => item.mrp !== '');
         console.log(filterData);
+        if(filterData.length===0){
+            alert("No Data Found, Please Try Again");
+        }
         setData(filterData);
 
 
@@ -183,7 +187,7 @@ const HandleState = (props) => {
     
     return (
         <HandleContext.Provider
-        value={{searchAllSites,data}}
+        value={{searchAllSites,data,searched,setSearched}}
         >
         {props.children}
         </HandleContext.Provider>

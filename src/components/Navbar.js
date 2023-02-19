@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import HandleContext from '../context/handleContext'
 
 const Navbar = () => {
-  const {searchAllSites} = useContext(HandleContext);
+  const {searchAllSites,setSearched} = useContext(HandleContext);
   const [search, setSearch] = useState('');
     const onClick = (e) => {
         // e.preventDefault();
         console.log(search);
+        const forserached = search.charAt(0).toUpperCase() + search.slice(1);
+        setSearched(forserached);
         searchAllSites(search);
     }
     const handleOnChange = (e) => {
@@ -20,7 +22,7 @@ const Navbar = () => {
       <div className='w'>
         <div className='medican-w font'>Medican</div>
       </div>
-      <div className='w d-flex justify-content-center'>
+      <div className='w d-flex justify-content-center respoNav'>
         <form className="d-flex search-bar-w" role="search">
             <input
                 className="form-control me-2"

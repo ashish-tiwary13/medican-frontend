@@ -5,11 +5,13 @@ import HandleContext from '../context/handleContext'
 
 
 const Home = () => {
-    const {searchAllSites} = useContext(HandleContext);
+    const {searchAllSites,setSearched} = useContext(HandleContext);
     const [search, setSearch] = useState('');
     const onClick = (e) => {
         // e.preventDefault();
         console.log(search);
+        const forserached = search.charAt(0).toUpperCase() + search.slice(1);
+        setSearched(forserached);
         searchAllSites(search);
     }
     const handleOnChange = (e) => {
