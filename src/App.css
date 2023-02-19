@@ -220,6 +220,11 @@ font-family: 'Open Sans', sans-serif;
   min-width: 7vw;
   height: 23px;
 }
+.imageLink{
+  height: 175px;
+  min-width: 175px;
+  align-self: center;
+}
 @media only screen and (max-width: 992px) {
   .imageLink{
     height: 15vh;

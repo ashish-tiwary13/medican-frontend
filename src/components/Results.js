@@ -1,13 +1,13 @@
 import React,{useContext} from 'react'
-// import { Link } from 'react-router-dom'
 import Cards from './Cards'
 import Navbar from './Navbar'
 import HandleContext from '../context/handleContext'
 import Filter from './Filter'
+import SkeletonLoading from './SkeletonLoading'
 
 
 const Results = () => {
-  const {data,searched} = useContext(HandleContext);
+  const {data,searched,isLoading} = useContext(HandleContext);
 
   
   
@@ -23,13 +23,23 @@ const Results = () => {
         <div className='containFilter' style={{display:"flex"}}>
           <Filter/>
           <div className='showComparison'>
-            {Array.isArray(data) && data.map((data) =>{
+            {
+              isLoading?
+              <>
+              <SkeletonLoading/>
+              <SkeletonLoading/>
+              <SkeletonLoading/>
+              </>
+              :
+
+            Array.isArray(data) && data.map((data) =>{
               return (
                 <div key={data.index}>
-                  <Cards data={data}/>
+                <Cards data={data}/>
                 </div>
-              );
-            })}
+                );
+              })
+            }
           </div>
         </div>
       </div>

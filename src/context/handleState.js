@@ -13,8 +13,10 @@ const fuzz= require('fuzzball');
 const HandleState = (props) => {
     const [data, setData] = useState('');
     const [searched, setSearched] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const apollo = async (search) => {
+      setIsLoading(true);
       const response = await fetch("https://medican-backend-apollo.vercel.app/api",{
           method: 'POST',
           headers: {
@@ -27,6 +29,7 @@ const HandleState = (props) => {
         return json;
     }
     const onemg = async (search) => {
+      setIsLoading(true);
       const response = await fetch("https://medican-backend-1mg.vercel.app/api",{
         mode: 'cors',
     
@@ -175,6 +178,7 @@ const HandleState = (props) => {
         if(filterData.length===0){
             alert("No Data Found, Please Try Again");
         }
+        setIsLoading(false);
         setData(filterData);
 
 
@@ -187,7 +191,7 @@ const HandleState = (props) => {
     
     return (
         <HandleContext.Provider
-        value={{searchAllSites,data,searched,setSearched}}
+        value={{searchAllSites,data,searched,setSearched,isLoading}}
         >
         {props.children}
         </HandleContext.Provider>

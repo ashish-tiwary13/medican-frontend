@@ -15,14 +15,14 @@ const Cards = (props) => {
   return (
     <>
       <section>
-        <div className="container py-1">
+        <div className="container py-1" style={{width:"75vw"}}>
           <div className="row justify-content-center mb-3">
             <div className="col-md-12 col-xl-10">
               <div className="card shadow-0 border rounded-3">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0 d-flex justify-content-center">
-                      <div className="bg-image hover-zoom ripple rounded ripple-surface" style={{width:"fitContent"}}>
+                      <div className="bg-image hover-zoom ripple rounded ripple-surface" style={{width:"fitContent",display:"flex"}}>
                         <img  src={data.image} alt='Not Available'
                           className="w-100 imageLink" />
                         <a href="#!">
