@@ -51,7 +51,7 @@ const Cards = (props) => {
                           <h5 className="mx-2 pharmeasyPrice comInfo fs" style={{display: `${data.pharmeasyPrice==0?"none":"block"}`}} >₹{data.pharmeasyPrice}</h5>
                           <h5 className="mx-2 netmedsPrice comInfo fs" style={{display: `${data.netmedsPrice==0?"none":"block"}`}} >₹{data.netmedsPrice}</h5>
                         </div>
-                        <div className="d-flex flex-column justify-content-center disCol">
+                        <div className="flex-column justify-content-center disCol">
                           <h5 className="mx-2 truemedsDiscount comInfo fs text-success"><img className='couponImg' src={coupon} alt="error"></img>{Discount(data.mrp,data.truemedsPrice)}% OFF</h5>
                           <h5 className="mx-2 apolloDiscount comInfo fs text-success"><img className='couponImg' src={coupon} alt="error"></img>{Discount(data.mrp,data.apolloPrice)}% OFF</h5>
                           <h5 className="mx-2 pharmeasyDiscount comInfo fs text-success" style={{display: `${data.pharmeasyPrice==0?"none":"block"}`}} ><img className='couponImg' src={coupon} alt="error"></img>{Discount(data.mrp,data.pharmeasyPrice)}% OFF</h5>
