@@ -214,7 +214,7 @@ font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   text-decoration: none;
-  min-width: 5vw;
+  min-width: 58px;
 }
 .comInfo{
   margin-top: 2px;

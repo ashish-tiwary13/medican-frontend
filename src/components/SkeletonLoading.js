@@ -28,25 +28,25 @@ const SkeletonLoading = () => {
                     <div style={{width:"170px",marginTop:"1px",marginBottom:"3px"}}><Skeleton height={25}/></div>
                     <div className="d-flex flex-row" style={{height:"140px"}}>
                       <div className="d-flex flex-column justify-content-center">
-                        <h5 className="mx-3 truemedsTitle comInfo fs"><Skeleton /></h5>
-                        <h5 className="mx-3 apolloTitle comInfo fs"><Skeleton /></h5>
+                        <h5 className="mx-3 truemedsTitle comInfo fs wd" style={{width:"85px"}}><Skeleton /></h5>
+                        <h5 className="mx-3 apolloTitle comInfo fs wd"><Skeleton /></h5>
                         <h5 className="mx-3 pharmeasyTitle comInfo fs"><Skeleton /></h5>
                         <h5 className="mx-3 netmedsTitle comInfo fs"><Skeleton /></h5>
                       </div>
                       <div className="d-flex flex-column justify-content-center">
-                        <h5 className="mx-2 truemedsPrice comInfo fs"><Skeleton /></h5>
+                        <h5 className="mx-2 truemedsPrice comInfo fs wd1" style={{minWidth:"85px"}}><Skeleton /></h5>
                         <h5 className="mx-2 apolloPrice comInfo fs"><Skeleton /></h5>
                         <h5 className="mx-2 apolloPrice comInfo fs"><Skeleton /></h5>
                         <h5 className="mx-2 apolloPrice comInfo fs"><Skeleton /></h5>
                       </div>
-                      <div className="d-flex flex-column justify-content-center disCol">
-                        <h5 className="mx-2 truemedsDiscount comInfo fs text-success"><Skeleton /></h5>
+                      <div className="flex-column justify-content-center disCol">
+                        <h5 className="mx-2 truemedsDiscount comInfo fs text-success wd2" style={{minWidth:"95px"}}><Skeleton /></h5>
                         <h5 className="mx-2 apolloDiscount comInfo fs text-success"><Skeleton /></h5>
                         <h5 className="mx-2 apolloDiscount comInfo fs text-success"><Skeleton /></h5>
                         <h5 className="mx-2 apolloDiscount comInfo fs text-success"><Skeleton /></h5>
                       </div>
-                      <div className="d-flex flex-column justify-content-center">
-                        <h5 className="mx-2 truemedsPrice comInfo fs"><Skeleton /></h5>
+                      <div className="d-flex flex-column justify-content-center" style={{minWidth:"100px"}}>
+                        <h5 className="mx-2 truemedsPrice comInfo fs wd3"><Skeleton /></h5>
                         <h5 className="mx-2 apolloPrice comInfo fs"><Skeleton /></h5>
                         <h5 className="mx-2 apolloPrice comInfo fs"><Skeleton /></h5>
                         <h5 className="mx-2 apolloPrice comInfo fs"><Skeleton /></h5>
