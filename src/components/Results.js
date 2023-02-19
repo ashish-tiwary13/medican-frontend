@@ -15,7 +15,7 @@ const Results = () => {
   return (
     
     <>
-      <div className='d-flex' style={{flexDirection:"column"}}>
+      <div className='d-flex' style={{flexDirection:"column",overflow:"hidden"}}>
         <div>
           <Navbar/>
         </div>
