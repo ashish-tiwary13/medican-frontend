@@ -7,7 +7,14 @@ import SkeletonLoading from './SkeletonLoading'
 
 
 const Results = () => {
-  const {data,searched,isLoading} = useContext(HandleContext);
+  const {filterData,searched,isLoading,count,result} = useContext(HandleContext);
+
+  let data = [];
+  if(count===0){
+    data = result;
+  }else{
+    data = filterData;
+  }
 
   
   

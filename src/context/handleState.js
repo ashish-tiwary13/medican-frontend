@@ -11,11 +11,16 @@ const fuzz= require('fuzzball');
 //
 
 const HandleState = (props) => {
-    const [data, setData] = useState('');
+    const [result, setResult] = useState('');
     const [searched, setSearched] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [price, setPrice] = useState(-1);
+    const [filterData, setFilterData] = useState([]);
+    const [count, setCount] = useState(0);
+    
 
     const apollo = async (search) => {
+      setCount(0);
       setIsLoading(true);
       const response = await fetch("https://medican-backend-apollo.vercel.app/api",{
           method: 'POST',
@@ -25,7 +30,7 @@ const HandleState = (props) => {
           body: JSON.stringify({search})
         });
         const json = await response.json();
-        // setData(json);
+        // setResult(json);
         return json;
     }
     const onemg = async (search) => {
@@ -40,7 +45,7 @@ const HandleState = (props) => {
           body: JSON.stringify({search})
         });
         const json = await response.json();
-        // setData(json);
+        // setResult(json);
         return json;
     }
     const pharmeasy = async (search) => {
@@ -52,7 +57,7 @@ const HandleState = (props) => {
           body: JSON.stringify({search})
         });
         const json = await response.json();
-        // setData(json);
+        // setResult(json);
         return json;
     }
     const netmeds = async (search) => {
@@ -64,7 +69,7 @@ const HandleState = (props) => {
           body: JSON.stringify({search})
         });
         const json = await response.json();
-        // setData(json);
+        // setResult(json);
         return json;
     }
     const truemeds = async (search) => {
@@ -76,7 +81,7 @@ const HandleState = (props) => {
           body: JSON.stringify({search})
         });
         const json = await response.json();
-        // setData(json);
+        // setResult(json);
         return json;
     }
 //
@@ -179,7 +184,11 @@ const HandleState = (props) => {
             alert("No Data Found, Please Try Again");
         }
         setIsLoading(false);
-        setData(filterData);
+        setResult(filterData);
+
+    
+
+        
 
 
 
@@ -191,7 +200,7 @@ const HandleState = (props) => {
     
     return (
         <HandleContext.Provider
-        value={{searchAllSites,data,searched,setSearched,isLoading}}
+        value={{searchAllSites,result,setResult,searched,setSearched,isLoading,price,setPrice,filterData,setFilterData,setCount,count}}
         >
         {props.children}
         </HandleContext.Provider>
