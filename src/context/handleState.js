@@ -80,7 +80,6 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
-        alert("No Data Found, Please Try Again");
         return null;
       }
     }
@@ -99,7 +98,6 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
-        alert("No Data Found, Please Try Again");
         return null;
       }
     }
