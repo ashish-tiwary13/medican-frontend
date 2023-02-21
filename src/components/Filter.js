@@ -29,7 +29,7 @@ const Filter = () => {
       const filteredData = result.filter(item => Number(item.mrp) <= price);
       setCount(1);
       setFilterData(filteredData);
-      console.log(filteredData); // output the filtered data to the console
+      // console.log(filteredData); // output the filtered data to the console
     } else {
       console.error("data is not an array");
     }

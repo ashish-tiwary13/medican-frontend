@@ -14,12 +14,15 @@ const HandleState = (props) => {
     const [result, setResult] = useState('');
     const [searched, setSearched] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [handleErr, setHandleErr] = useState(false);
     const [price, setPrice] = useState(-1);
     const [filterData, setFilterData] = useState([]);
     const [count, setCount] = useState(0);
     
 
+    
     const apollo = async (search) => {
+      try{
       setCount(0);
       setIsLoading(true);
       const response = await fetch("https://medican-backend-apollo.vercel.app/api",{
@@ -32,8 +35,15 @@ const HandleState = (props) => {
         const json = await response.json();
         // setResult(json);
         return json;
-    }
+      } catch (err) {
+        console.error("Error: ", err);
+        setHandleErr(true);
+        return null;
+      }
+      }
+    
     const onemg = async (search) => {
+      try{
       setIsLoading(true);
       const response = await fetch("https://medican-backend-1mg.vercel.app/api",{
         mode: 'cors',
@@ -47,8 +57,14 @@ const HandleState = (props) => {
         const json = await response.json();
         // setResult(json);
         return json;
+      } catch (err) {
+        console.error("Error: ", err);
+        setHandleErr(true);
+        return null;
+      }
     }
     const pharmeasy = async (search) => {
+      try{
       const response = await fetch("https://medican-backend-pharmeasy.vercel.app/api",{
           method: 'POST',
           headers: {
@@ -59,8 +75,14 @@ const HandleState = (props) => {
         const json = await response.json();
         // setResult(json);
         return json;
+      } catch (err) {
+        console.error("Error: ", err);
+        setHandleErr(true);
+        return null;
+      }
     }
     const netmeds = async (search) => {
+      try{
       const response = await fetch("https://medican-backend-netmeds.vercel.app/api",{
           method: 'POST',
           headers: {
@@ -71,8 +93,14 @@ const HandleState = (props) => {
         const json = await response.json();
         // setResult(json);
         return json;
+      } catch (err) {
+        console.error("Error: ", err);
+        setHandleErr(true);
+        return null;
+      }
     }
     const truemeds = async (search) => {
+      try{
       const response = await fetch("https://medican-backend-truemeds.vercel.app/api",{
           method: 'POST',
           headers: {
@@ -83,6 +111,11 @@ const HandleState = (props) => {
         const json = await response.json();
         // setResult(json);
         return json;
+      } catch (err) {
+        console.error("Error: ", err);
+        setHandleErr(true);
+        return null;
+      }
     }
 //
     const searchAllSites = async (search) => {
@@ -95,6 +128,7 @@ const HandleState = (props) => {
         const [json1,json2,json3,json4] = await Promise.all([apollo(search),truemeds(search),pharmeasy(search),netmeds(search)]);
 // console.log({json5});
 
+        if(json1!=null || json2!=null){
         // //
 
         const medicanApi1=[];
@@ -178,6 +212,7 @@ const HandleState = (props) => {
             }
             medicanApi3.push(data);
         }
+      
         const filterData = medicanApi3.filter((item) => item.mrp !== '');
         console.log(filterData);
         if(filterData.length===0){
@@ -185,8 +220,17 @@ const HandleState = (props) => {
         }
         setIsLoading(false);
         setResult(filterData);
+      }else{
+        alert("No Data Found, Please Try Again");
+        setIsLoading(false);
+        if(handleErr===true){
+          alert("No Data Found, Please Try Again");
+          setIsLoading(false);
+        }
+      }
 
     
+        
 
         
 
@@ -197,6 +241,7 @@ const HandleState = (props) => {
         // console.log(json2);
         // console.log(json1,json2,json3,json4);
       }
+    
     
     return (
         <HandleContext.Provider
