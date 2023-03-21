@@ -38,7 +38,7 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
-        alert("No Data Found, Please Try Again");
+        alert("Due to free deployment, the server is sleeping, Please search once again ");
         return null;
       }
       }
@@ -61,7 +61,7 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
-        alert("No Data Found, Please Try Again");
+        alert("Due to free deployment, the server is sleeping, Please search once again ");
         return null;
       }
     }
@@ -116,7 +116,7 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
-        alert("No Data Found, Please Try Again");
+        alert("Due to free deployment, the server is sleeping, Please search once again ");
         return null;
       }
     }
@@ -134,17 +134,20 @@ const HandleState = (props) => {
         if(json1!=null || json2!=null){
         // //
 
-        const medicanApi1=[];
-        const medicanApi2=[];
-        const medicanApi3=[]; 
+        let medicanApi1=[];
+        let medicanApi2=[];
+        let medicanApi3=[]; 
         let nameScore=-1;
         let mrpScore=-1;
+        let json2modified =-1;
         let x=0;
         for (let i = 0; i < 30; i++) {
             const data = { index: i, name:"",mrp:"" ,apolloPrice:"",truemedsPrice:"",pharmeasyPrice:"", netmedsPrice: "",image: "" ,apolloLink:"",truemedsLink:"",pharmeasyLink:"", netmedsLink: ""};
             for (let j = 0; j < 30; j++) {
+                json2modified=Math.ceil(json2[j].mrp).toString();
                 nameScore = fuzz.token_set_ratio(json1[i].name, json2[j].name);
-                mrpScore = fuzz.token_set_ratio(json1[i].mrp, json2[j].mrp);
+                mrpScore = fuzz.token_set_ratio(json1[i].mrp, json2modified);
+                // console.log(json1[i].name +"||"+json2[j].name+"||"+json1[i].mrp+"||"+json2[j].mrp+"||"+Math.ceil(json2[j].mrp)+"||"+nameScore+"||"+mrpScore);
                 if(nameScore>50 && mrpScore==100){
                     // console.log(json1[i].name +"||"+json2[j].name+"||"+nameScore+"||"+mrpScore);
                     data.name = json1[i].name;
@@ -162,6 +165,7 @@ const HandleState = (props) => {
         }
         
         // between medicanAp1 and pharmeasy
+        if(json3!=null){
         for (let i = 0; i < 30; i++) {
             const data = { index: i, name:"",mrp:"" ,apolloPrice:"",truemedsPrice:"",pharmeasyPrice:"", netmedsPrice: "",image: ""  ,apolloLink:"",truemedsLink:"",pharmeasyLink:"", netmedsLink: ""};
             for (let j = 0; j < 30; j++) {
@@ -186,9 +190,13 @@ const HandleState = (props) => {
                 }
             }
             medicanApi2.push(data);
+          }
+        }else{
+            medicanApi2=medicanApi1;
         }
         
         // between medicanApi2 and netmeds
+        if(json4!=null){
         for (let i = 0; i < 30; i++) {
             const data = { index: i, name:"",mrp:"" ,apolloPrice:"",truemedsPrice:"",pharmeasyPrice:"", netmedsPrice: "",apolloLink:"",truemedsLink:"",pharmeasyLink:"", netmedsLink: "",image: ""  };
             for (let j = 0; j < 30; j++) {
@@ -214,6 +222,9 @@ const HandleState = (props) => {
                 }
             }
             medicanApi3.push(data);
+          }
+        }else{
+            medicanApi3=medicanApi2;
         }
       
         const filterData = medicanApi3.filter((item) => item.mrp !== '');
