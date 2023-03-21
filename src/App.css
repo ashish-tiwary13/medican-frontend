@@ -144,6 +144,11 @@ font-family: 'Open Sans', sans-serif;
   color: rgb(255, 255, 255);
   text-shadow: #282c34;box-shadow: 7px;
   min-width: 10vw;
+  cursor: pointer;
+  text-decoration: none;
+}
+.medican-w:hover{
+  color: white;
 }
 .search-bar-w{
   width: 60vw;

@@ -16,11 +16,12 @@ const Navbar = () => {
         e.preventDefault();
         setSearch(e.target.value);
     }
+    
   return (
     <>
     <div className="navbar">
       <div className='w'>
-        <div className='medican-w font'>Medican</div>
+        <Link className='medican-w font' to="/" >Medican</Link>
       </div>
       <div className='w d-flex justify-content-center respoNav'>
         <form className="d-flex search-bar-w" role="search">
