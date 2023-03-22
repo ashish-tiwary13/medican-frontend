@@ -38,6 +38,7 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
+        setIsLoading(false);
         alert("Due to free deployment, the server is sleeping, Please search once again ");
         return null;
       }
@@ -61,6 +62,7 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
+        setIsLoading(false);
         alert("Due to free deployment, the server is sleeping, Please search once again ");
         return null;
       }
@@ -116,6 +118,7 @@ const HandleState = (props) => {
       } catch (err) {
         console.error("Error: ", err);
         setHandleErr(true);
+        setIsLoading(false);
         alert("Due to free deployment, the server is sleeping, Please search once again ");
         return null;
       }
